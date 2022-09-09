@@ -56,12 +56,17 @@ class FormParseController extends AbstractController
                 $jsonFile = array_count_values($jsonParse);
                 $repeat = array_diff($jsonFile, [1]);
                 $jsonFile = $repeat;
-                return $this->render('form_parse/index.html.twig', [
+                $jsonFile = '0';
+                return $this->render( 'form_parse/index.html.twig', [
 
                     'json' => $jsonFile,
                     'form' => $form->createView(),
                 ]);
+            } else {
+                $this->redirectToRoute('form_parse/index.html.twig');
             }
+
+
         }
 
         return $this->render('form_parse/index.html.twig', array('form' => $form->createView()));

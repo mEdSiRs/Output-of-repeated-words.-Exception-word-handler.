@@ -30,14 +30,18 @@
                 <th scope="col">Количество повторений</th>
             </tr>
             </thead>
-            {% for key, value in json %}
-                <tbody>
-                <tr>
-                    <td>{{ key }}</td>
-                    <td>{{ value }}</td>
-                </tr>
-                </tbody>
-            {% endfor %}
+            {% if  json is defined %}
+
+                {% for key, value in json %}
+                    <tbody>
+                    <tr>
+                        <td>{{ key }}</td>
+                        <td>{{ value }}</td>
+                    </tr>
+                    </tbody>
+                {% endfor %}
+            {% endif %}
+
         </table>
     </div>
 {% endblock %}
